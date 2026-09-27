@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>本地知识库</title><meta name="description" content="数据留在本机的 LLM Wiki">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2313171f'/%3E%3Cpath d='M8 8h11a5 5 0 010 10H13v6H8V8zm5 4v2h6a1 1 0 000-2h-6z' fill='%237ee787'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">W</span><div><strong>本地知识库</strong><small>数据保存在 D 盘</small></div></div>
+    <button id="newPage" class="primary">＋ 新建页面</button>
+    <label class="search"><span>⌕</span><input id="search" placeholder="搜索知识库  Ctrl K" autocomplete="off"></label>
+    <nav id="pageList" aria-label="页面列表"></nav>
+    <div class="model-status"><span id="statusDot"></span><div><strong id="statusText">检查本地模型…</strong><small id="modelText">Ollama</small></div></div>
+  </aside>
+  <main>
+    <header><button id="menu" aria-label="打开导航">☰</button><div id="crumb">知识库 / 首页</div><div class="header-actions"><span id="saveState">已保存</span><button id="editToggle">编辑</button><button id="deletePage" class="danger">删除</button></div></header>
+    <section class="workspace">
+      <article class="document">
+        <div id="viewMode"><h1 id="viewTitle"></h1><div id="viewMeta" class="meta"></div><div id="rendered" class="prose"></div></div>
+        <div id="editMode" hidden><input id="title" class="title-input" aria-label="标题"><input id="tags" class="tags-input" placeholder="标签，用逗号分隔" aria-label="标签"><textarea id="content" aria-label="Markdown 内容" spellcheck="false"></textarea><div class="edit-actions"><button id="cancelEdit">取消</button><button id="savePage" class="primary">保存页面</button></div></div>
+      </article>
+      <aside class="assistant">
+        <div class="assistant-head"><div><strong>问问知识库</strong><small>由本地模型回答</small></div><select id="model" aria-label="选择模型"><option value="">未检测到模型</option></select></div>
+        <div id="chat" class="chat"><div class="empty-chat"><span>✦</span><p>根据你的 Wiki 内容回答问题</p><small>例如：帮我总结这个知识库的核心内容</small></div></div>
+        <form id="chatForm"><textarea id="question" rows="2" placeholder="输入问题…" aria-label="向知识库提问"></textarea><button aria-label="发送">↑</button></form>
+      </aside>
+    </section>
+  </main>
+  <div id="toast" role="status"></div><div id="overlay"></div>
+  <script type="module" src="/app.js"></script>
+</body></html>

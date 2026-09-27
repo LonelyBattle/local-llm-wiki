@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.sites-runtime/
+
+# Runtime data lives on D: and must never be committed.
+data/
+*.db
+*.db-shm
+*.db-wal
