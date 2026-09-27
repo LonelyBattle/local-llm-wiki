@@ -7,7 +7,7 @@
 1. 双击或在 PowerShell 运行 `start-wiki.ps1`。
 2. 浏览器打开 <http://127.0.0.1:3210>。
 
-本项目使用 Node.js 22.5+ 内置 SQLite，无需安装 npm 依赖。
+本项目使用 Python 3.10+ 标准库，无需安装 pip 依赖。
 
 ## 启用本地问答
 
@@ -25,7 +25,7 @@ ollama pull qwen3:4b
 $env:WIKI_DATA_DIR = 'D:\LocalLLMWiki\data'
 $env:OLLAMA_URL = 'http://127.0.0.1:11434'
 $env:PORT = '3210'
-node server.mjs
+python server.py
 ```
 
 备份时只需复制 `D:\LocalLLMWiki\data` 整个目录。
